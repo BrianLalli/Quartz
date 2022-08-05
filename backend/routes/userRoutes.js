@@ -1,7 +1,10 @@
 const express = require('express');
-const { getProjects, setProject, updateProject, deleteProject } = require('../controller/projectController');
 const router = express.Router();
 const cors = require('cors');
 const { Router } = require('express');
+const {getUsers, createUser, updateUser, deleteUser}= require('../controller/usersController')
 
-Router.route('/').get(getUsers);
+router.route('/:id').get(getUsers).put(updateUser).delete(deleteUser).post(createUser);
+
+
+module.exports = router;

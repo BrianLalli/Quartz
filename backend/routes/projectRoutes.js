@@ -4,10 +4,10 @@ const router = express.Router();
 const cors = require('cors');
 
 //send get and post routes to controller
-router.route('/').get(getProjects).post(setProject)
+// router.route('/').get(getProjects).post(setProject)
 
 //send delete and put requests to the /:ID specific controller
-router.route('/:id').delete(deleteProject).put(updateProject)
+router.route('/:id').delete(deleteProject).put(updateProject).get(getProjects).post(setProject)
 
 router.use(cors()); 
 

@@ -55,5 +55,6 @@ module.exports = {
     getProjects,
     setProject,
     updateProject,
-    deleteProject
+    deleteProject,
+    UserProjects
 }

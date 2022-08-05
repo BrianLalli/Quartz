@@ -2,7 +2,7 @@
 //Add Users Controller
 const asyncHandler = require('express-async-handler')
 const colors = require('colors')
-const Users = require('../model/userModel')
+const User = require('../model/userModel')
 // Add User Auth
     // Login
 const loginController = asyncHandler(async (req, res) => {
@@ -99,11 +99,13 @@ const deleteUser = asyncHandler(async (req, res) => {
 })
 
 module.exports = {
-    getProjects,
-    setProject,
-    updateProject,
-    deleteProject,
-    getUsers
+      getUsers,
+      createUser,
+      updateUser,
+      deleteUser,
+      loginController,
+      logoutController,
+      getLoggedInUser
 }
 
 

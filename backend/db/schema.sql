@@ -1,2 +1,18 @@
-DROP DATABASE IF EXISTS navbar_db;
-CREATE DATABASE navbar_db;
+DROP DATABASE IF EXISTS projects_db;
+CREATE DATABASE projects_db;
+
+USE projects_db;
+
+CREATE TABLE projects (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  movie_name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE projects (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    project_id INT,
+    review TEXT NOT NULL,
+    FOREIGN KEY (project_id)
+    REFERENCES projects(id)
+    ON DELETE SET NULL
+);

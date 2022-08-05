@@ -1,0 +1,33 @@
+{
+  "name": "interactive-full-stack-application",
+  "version": "0.0.1",
+  "description": "A Full stack Project Management app",
+  "main": "server.js",
+  "scripts": {
+    "test": "run server.js",
+    "server": "node backend/server.js",
+    "start": "concurrently --kill-others \"npm run frontend\" \"nodemon backend/server.js\"  ",
+    "frontend": "cd ./frontend && npm run dev "
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrianLalli/Interactive-Full-Stack-Application/issues"
+  },
+  "homepage": "https://github.com/BrianLalli/Interactive-Full-Stack-Application#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "concurrently": "^7.3.0",
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-async-handler": "^1.2.0",
+    "express-session": "^1.17.3",
+    "fs": "^0.0.1-security",
+    "global": "^4.4.0",
+    "mongoose": "^6.5.0",
+    "nodemon": "^2.0.19",
+    "path": "^0.12.7"
+  }
+}

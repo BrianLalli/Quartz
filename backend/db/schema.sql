@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS navbar_db;
+CREATE DATABASE navbar_db;

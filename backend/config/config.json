@@ -1,0 +1,8 @@
+// "development": {
+//     "username": "root",
+//     "password": null, // Your password. If the password is blank, enter null.
+//     "database": "sequelize_tutorial",
+//     "host": "localhost",
+//     "dialect": "mysql",
+//     "port": 3307
+//   }

@@ -1,2 +1,2 @@
-DELETE FROM 
-WHERE id = 2;
+-- DELETE FROM 
+-- WHERE id = 2;

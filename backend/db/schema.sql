@@ -5,12 +5,12 @@ USE projects_db;
 
 CREATE TABLE projects (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  movie_name VARCHAR(100) NOT NULL
+  project_name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE projects (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    project_id INT,
+    -- project_id INT,
     review TEXT NOT NULL,
     FOREIGN KEY (project_id)
     REFERENCES projects(id)

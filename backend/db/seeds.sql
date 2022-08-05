@@ -1,18 +1,16 @@
-INSERT INTO projects (project_name)
-VALUES ("Test"),
-       ("1"),
-       ("2"),
-       ("3"),
-       ("4");
+-- Insert multiple project items --
+INSERT INTO projects (id, project_name, active)
+VALUES
+    ( 1, "Quartz", true),
+    ( 2, "Jet", true),
+    ( 3, "Amethyst", false)
 
-INSERT INTO projects (project_id, users)
-VALUES (1, "Zazu is underrated. Give that hornbill a sequel!"),
-       (2, "I'm gonna make him an offer you can't refuse, watch this movie"),
-       (1, "Scar is the lion everyone loves to hate"),
-       (3, "Ten years of ballet and three years of tap to join a gang in this neighborhood"),
-       (5, "The tin man gave a metallic, hollow performance"),
-       (1, "Hakuna matata"),
-       (5, "Those flying monkeys are nightmare fuel!");
+-- Insert multiple user items --
+INSERT INTO users (id, first_name, last_name)
+VALUES
+    ( 1, "Andrew", "Edwards", true, true),
+    ( 2, "Itzel", "Cole", false, true),
+    ( 3, "Joel", "Prentiss", true, false);
        
 
 

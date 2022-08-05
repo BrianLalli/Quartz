@@ -6,7 +6,7 @@
   "scripts": {
     "test": "run server.js",
     "server": "node backend/server.js",
-    "start": "concurrently --kill-others \"npm run frontend\" \"nodemon backend/server.js\"  ",
+    "start": "nodemon backend/server.js",
     "frontend": "cd ./frontend && npm run dev "
   },
   "author": "",

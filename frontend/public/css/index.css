@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.ae-hero {
+  background-color: #fff;
+}/*# sourceMappingURL=index.css.map */

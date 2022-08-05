@@ -3,10 +3,11 @@ const dotenv = require('dotenv').config();
 const PORT = process.env.PORT || 5000;
 const colors = require('colors')
 const app = express();
-const connectDB = require('./config/db');
 const path = require('path')
 const publicPath = path.join(process.cwd(), 'frontend', 'dist');
 const session = require("express-session");
+const exphbs = require('express-handlebars');
+
 
 // Set up sessions with cookies using SQL as storage
 const sess = {
@@ -21,13 +22,17 @@ const sess = {
   })
 };
 
-app.use(session(sess));
 
+app.use(session(sess));
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 
 // Express middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 // Connect to SQL database
@@ -44,25 +49,17 @@ const db = mysql.createConnection(
 );
 
 
-
-
 //send api calls to router
-app.use('/api/Projects', require('./routes/projectRoutes'));
+app.use('/api/Projects', require('./backend/routes/projectRoutes'));
 // app.use('api/Users', require('./routes/userRoutes'));
 app.use(express.static(publicPath))
 
 
-//send the main page on url load
-app.get('/', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
+// connect to db before starting server
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
 });
 
-// connect to db before starting server
-connectDB.once('open', () => {
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`.rainbow);
-  })
-})
 
 // To Do:
 // Add app.use(USERS)

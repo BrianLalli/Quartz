@@ -1,0 +1,10 @@
+new user sign up/ existing user sign in
+
+create project page 
+    ask to name project 
+        **icebox: templates,
+        project type
+
+
+project dashboard
+    

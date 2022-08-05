@@ -1,10 +1,21 @@
 const Users = require('./userModel');
 const Project = require('./projectModel');
+const ProjectManager = require('./projectManagerModel')
 
-Users.hasMany(Project, {
-    foreignKey: 'project_id',
+Users.belongsToMany(Project, {
+    through:{
+        model: ProjectManager,
+        unique: false
+    },
+    as: 'project_team'
 });
 
-Project.hasMany(Users, {
-    foreignKey: 'user_id',
+Project.belongsToMany(Users, {
+    through:{
+        model: ProjectManager,
+        unique: false,
+    },
+    as: 'teams_assigned'
 });
+
+module.exports ={Users, Project, ProjectManager};

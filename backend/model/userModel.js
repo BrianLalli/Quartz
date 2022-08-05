@@ -1,10 +1,18 @@
 // To Do:
 //Add Users Model
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+// const Project = require('./projectModel')
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 class Users extends Model{}
-
+// const UserSchema = new mongoose.Schema({
+//     name: String,
+//     id: Number,
+//     role: String,
+//     email: String,
+//     project:[{ ProjectId: Number
+//     }],
+// });
 
 //mongoose schema
 //the is the schema for mongoDB
@@ -29,7 +37,7 @@ Users.init({
     },
     project_id:{
         type: DataTypes.INTEGER,
-        references:{
+        refrences:{
             model: 'projectModel',
             key: 'id',
             unique: false
@@ -45,5 +53,5 @@ Users.init({
   }
 );
 
-module.exports = mongoose.model('Users', UserSchema)
+// module.exports = mongoose.model('Users', UserSchema)
 module.exports = Users;

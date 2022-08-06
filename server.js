@@ -42,7 +42,7 @@ app.use('/api/Projects', require('./backend/routes/projectRoutes'));
 // app.use('api/Users', require('./routes/userRoutes'));
 
 app.get('/', (req, res) => {
-  res.render('all');
+  res.render('homepage');
 });
 
 

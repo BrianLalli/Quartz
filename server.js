@@ -49,6 +49,14 @@ app.get('/login', (req, res) => {
   res.render('login');
 });
 
+// needs /:id
+app.get('/profile', (req, res) => {
+  res.render('login');
+});
+
+app.get('/project/:id', (req, res) => {
+  res.render('login');
+});
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'.bgGreen + ' http://localhost:3001/'.rainbow));

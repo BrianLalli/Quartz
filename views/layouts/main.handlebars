@@ -5,13 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/svg" href="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/042/836/original/favicon.png?1659736309" />
+   <link
+      rel='stylesheet'
+      href='https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css'
+    />
+    <link
+      rel='stylesheet'
+      href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'
+      integrity='sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU'
+      crossorigin='anonymous'
+    />
+     <link
+      rel='icon'
+      type='image/svg'
+      href='https://s3.amazonaws.com/shecodesio-production/uploads/files/000/042/836/original/favicon.png?1659736309'
+    />
     <title>Quartz | Project Management Tool</title>
     <link rel="stylesheet" type="mime" href="../../public/css/marx.css" />
     <link rel="stylesheet" type="mime" href="../../public/css/style.css">
+    <link rel='stylesheet' href='../../public/css/jass.css' />
     <link rel="stylesheet" type="mime" href="../../public/css/index.css" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
+   
 </head>
 
 <body>
@@ -21,14 +36,13 @@
   </header>
 
   <main>
-      <!-- Render the sub layout -->
       {{{ body }}}
     </main>
 
 
-<footer class="text-center bg-gray-800 text-white bottom-0 min-w-full">
+  <footer class="text-center bg-gray-800 text-white bottom-0 min-w-full">
   {{> footer }}
-</footer>
+  </footer>
 
 </body>
 

@@ -12,9 +12,7 @@
           <span class="sr-only">Open main menu</span>
           <!--
             Icon when menu is closed.
-
             Heroicon name: outline/menu
-
             Menu open: "hidden", Menu closed: "block"
           -->
           <svg
@@ -34,9 +32,7 @@
           </svg>
           <!--
             Icon when menu is open.
-
             Heroicon name: outline/x
-
             Menu open: "block", Menu closed: "hidden"
           -->
           <svg
@@ -77,8 +73,7 @@
             {{#if logged_in}}
               <a
                 href="/dashboard"
-                class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                aria-current="page"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >Dashboard</a>
 
               <a
@@ -87,7 +82,7 @@
               >Team</a>
 
               <a
-                href="/project"
+                href="/myprojects"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >Projects</a>
             {{/if}}
@@ -98,16 +93,16 @@
       <div>
         {{#if logged_in}}
           <a
-            class="text-white px-3 py-2 rounded-md text-sm font-medium"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             href="/profile"
-          >Profile</a>
+          >New Project</a>
           <button
-            class="no-button text-white px-3 py-2 rounded-md text-sm font-medium"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             id="logout"
           >Logout</button>
         {{else}}
           <a
-            class="text-white px-3 py-2 rounded-md text-sm font-medium"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             href="/login"
           >Login</a>
         {{/if}}
@@ -116,8 +111,3 @@
     </div>
   </div>
 </nav>
-
-<!-- Render script for logged in users only -->
-{{#if logged_in}}
-  <script src="/js/logout.js"></script>
-{{/if}}

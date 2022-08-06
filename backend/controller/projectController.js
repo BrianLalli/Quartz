@@ -1,6 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const colors = require('colors')
-const Project = require('../model/ProjectModel')
+const Project = require('../model/projectModel')
 
 //get Projects from db
 //route GET /api/Projects

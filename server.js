@@ -1,66 +1,41 @@
+const path = require('path');
 const express = require('express');
-const dotenv = require('dotenv').config();
-const PORT = process.env.PORT || 5000;
-const colors = require('colors')
-const app = express();
-const path = require('path')
-const publicPath = path.join(process.cwd(), 'frontend', 'dist');
-const session = require("express-session");
+const session = require('express-session');
 const exphbs = require('express-handlebars');
+const routes = require('./controllers');
+const helpers = require('./utils/helpers');
 
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// Set up sessions with cookies using SQL as storage
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+// Set up Handlebars.js engine with custom helpers
+const hbs = exphbs.create({ helpers });
+
 const sess = {
   secret: 'Super secret secret',
-  cookie: {
-    maxAge: 21600000, //changed to 6 hours
-  },
+  cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize,
+    db: sequelize
   })
 };
 
-
 app.use(session(sess));
+
+// Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-
-// Express middleware
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(routes);
 
-
-// Connect to SQL database
-const db = mysql.createConnection(
-  {
-    host: 'localhost',
-    // MySQL Username
-    user: 'root',
-    // TODO: Add MySQL Password
-    password: '',
-    database: 'projects_db'
-  },
-  console.log(`Connected to the projects_db database.`)
-);
-
-
-//send api calls to router
-app.use('/api/Projects', require('./backend/routes/projectRoutes'));
-// app.use('api/Users', require('./routes/userRoutes'));
-app.use(express.static(publicPath))
-
-
-// connect to db before starting server
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
-
-
-// To Do:
-// Add app.use(USERS)
-

@@ -1,28 +1,12 @@
 :root {
-  --bg-color: #4f45e4;
+  --primary-color: #4f45e4;
 }
 
-header,
-.project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+nav a {
+  font-size: 20px;
+  text-decoration: none !important;
 }
-
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
-}
-
-.no-button:hover {
-  color: var(--bg-color);
-  text-decoration: underline;
-}
-
-/* login Section */
+/* Login Page */
 
 .bgImg {
   background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/042/839/original/pexels-fauxels-3184298.jpeg?1659740125");
@@ -39,16 +23,55 @@ header,
   font-size: 35px;
   font-weight: bolder;
   text-align: center;
-  color: var(--bg-color);
+  color: var(--primary-color);
 }
 
 .loginForm {
   padding: 10px;
   border-radius: 4px;
-  color: var(--bg-color);
+  color: var(--primary-color);
 }
 .signupForm {
   padding: 10px;
   border-radius: 4px;
-  color: var(--bg-color);
+  color: var(--primary-color);
+}
+
+/* Profile Page */
+
+.profileTitle {
+  font-size: 35px;
+  color: var(--primary-color);
+  margin-top: 20px;
+}
+
+.profileSubtitle {
+  font-size: 25px;
+}
+
+/* Dashboard Page */
+
+.bg-black-alt {
+  background: #191919;
+}
+.text-black-alt {
+  color: #191919;
+}
+.border-black-alt {
+  border-color: #191919;
+}
+
+/* Projects Page */
+.projectCard {
+  background-color: rgb(248, 240, 251);
+  padding: 20px;
+  margin-top: 10px;
+  font-size: 16px !important;
+  border-radius: 10px;
+}
+.projectCard p {
+  font-size: 16px !important;
+}
+.createdCard {
+  text-align: right;
 }

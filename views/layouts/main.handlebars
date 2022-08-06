@@ -1,27 +1,35 @@
+<!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quar+z | PM tool </title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg" href="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/042/836/original/favicon.png?1659736309" />
+    <title>Quartz | Project Management Tool</title>
     <link rel="stylesheet" type="mime" href="../../public/css/marx.css" />
+    <link rel="stylesheet" type="mime" href="../../public/css/style.css">
     <link rel="stylesheet" type="mime" href="../../public/css/index.css" />
 
-      <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-  <body>
-    <div class="flex-column justify-space-around">
-      <header class="display-flex justify-space-between align-center p-2">
-      </header>
-      <main class="container container-fluid mt-5">
-        {{{body}}}
-      </main>
-      <footer class="text-center bg-stone-900 text-white bottom-0 min-w-full">
-      {{> footer }}
-      </footer>
-    </div>
+<body>
 
-  </body>
+  <header>
+    {{> navbar }}
+  </header>
+
+  <main>
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+
+
+<footer class="text-center bg-gray-800 text-white bottom-0 min-w-full">
+  {{> footer }}
+</footer>
+
+</body>
 
 </html>

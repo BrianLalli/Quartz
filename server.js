@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const router = require('express').Router();
 const helpers = require('./utils/helpers');
 const sequelize = require('./backend/config/connection.js');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -30,6 +31,7 @@ app.use(session(sess));
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+// app.set('layouts', './views/layouts');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -39,8 +41,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/Projects', require('./backend/routes/projectRoutes'));
 // app.use('api/Users', require('./routes/userRoutes'));
 
+app.get('/', (req, res) => {
+  res.render('main');
+});
+
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'.bgGreen +' http://localhost:3001/'.rainbow));
+  app.listen(PORT, () => console.log('Now listening'.bgGreen + ' http://localhost:3001/'.rainbow));
 });
 

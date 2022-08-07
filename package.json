@@ -7,9 +7,11 @@
     "test": "run server.js",
     "server": "node backend/server.js",
     "start": "nodemon backend/server.js",
+
+    
     "frontend": "cd ./frontend && npm run dev ",
     "watch": "nodemon server.js"
-  },
+},
   "author": "",
   "license": "ISC",
   "bugs": {

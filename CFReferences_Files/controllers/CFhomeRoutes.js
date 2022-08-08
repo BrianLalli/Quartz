@@ -52,7 +52,7 @@ router.get("/team", async (req, res) => {
   }
 });
 
-router.get("/myprojects", async (req, res) => {
+router.get("/projects", async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const projectData = await Project.findAll({
@@ -68,7 +68,7 @@ router.get("/myprojects", async (req, res) => {
     const projects = projectData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render("myprojects", {
+    res.render("projects", {
       projects,
       logged_in: req.session.logged_in,
     });

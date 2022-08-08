@@ -7,11 +7,10 @@
     "test": "run server.js",
     "server": "node backend/server.js",
     "start": "nodemon backend/server.js",
-
-    
     "frontend": "cd ./frontend && npm run dev ",
-    "watch": "nodemon server.js"
-},
+    "watch": "nodemon server.js",
+    "seed": "backend/seeds node seed.js"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -20,6 +19,7 @@
   "homepage": "https://github.com/BrianLalli/Interactive-Full-Stack-Application#readme",
   "dependencies": {
     "-": "^0.0.1",
+    "bcrypt": "^5.0.1",
     "colors": "^1.4.0",
     "concurrently": "^7.3.0",
     "connect": "^3.7.0",

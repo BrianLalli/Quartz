@@ -1,44 +1,60 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/db');
-// const User = require('./userModel');
-
+const sequelize = require('../config/connection');
 
 class Project extends Model { }
 
-Project.init({
+Project.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        budget: {
+            type: DataTypes.FLOAT,
+            allowNull: true,
+        },
+        status: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        deadline: {
+            type: DataTypes.DATEONLY,
+            allowNull: true,
+        },
+        priority: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        description: {
+            type: DataTypes.STRING,
+        },
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+        },
 
-    projectId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
+        },
     },
-    projectName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-
-    },
-    projectCost: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        defaultValue: 0
-    },
-    user_id: {
-        type: DataTypes.INTEGER,
-        refernces: {
-            model: 'userModel',
-            key: 'id',
-            unique: false
-        }
-    },
-
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'project',
-},
-    { sequelize }
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'project',
+    }
 );
 
 module.exports = Project;
-

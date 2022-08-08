@@ -1,5 +1,0 @@
--- SELECT projects.project_name AS project, users.user
--- FROM projects
--- LEFT JOIN projects
--- ON users.user_id = user.id
--- ORDER BY projects.project_name;

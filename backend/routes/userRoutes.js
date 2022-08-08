@@ -6,5 +6,9 @@ const {getUsers, createUser, updateUser, deleteUser}= require('../controller/use
 
 router.route('/:id').get(getUsers).put(updateUser).delete(deleteUser).post(createUser);
 
+router.get('*', (req, res)=>
+res.sendFile(path.join(_dirname, '../../public/404image.jpg')));
+
+
 
 module.exports = router;

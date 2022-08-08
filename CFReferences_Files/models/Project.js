@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Project extends Model {}
 
@@ -15,6 +15,22 @@ Project.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    budget: {
+      type: DataTypes.FLOAT,
+      allowNull: true,
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    priority: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    deadline: {
+      type: DataTypes.DATEONLY,
+      allowNull: true,
+    },
     description: {
       type: DataTypes.STRING,
     },
@@ -23,15 +39,12 @@ Project.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
+
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
       },
     },
   },
@@ -40,7 +53,7 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: "project",
   }
 );
 

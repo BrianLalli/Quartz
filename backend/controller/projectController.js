@@ -5,7 +5,7 @@ const Project = require('../model/projectModel')
 //get Projects from db
 //route GET /api/Projects
 const getProjects = asyncHandler(async (req, res) => {
-    Project.find().then((data) => {
+    Project.findAll().then((data) => {
         res.status(200).json(data)
     })
 })

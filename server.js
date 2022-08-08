@@ -51,7 +51,7 @@ app.get('/login', (req, res) => {
 
 // needs /:id
 app.get('/profile', (req, res) => {
-  res.render('login');
+  res.render('profile');
 });
 
 app.get('/project/:id', (req, res) => {

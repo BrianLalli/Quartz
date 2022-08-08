@@ -1,21 +1,13 @@
-const Users = require('./userModel');
+const User = require('./userModel');
 const Project = require('./projectModel');
-const ProjectManager = require('./projectManagerModel')
 
-Users.belongsToMany(Project, {
-    through:{
-        model: ProjectManager,
-        unique: false
-    },
-    as: 'project_team'
+User.hasMany(Project, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 });
 
-Project.belongsToMany(Users, {
-    through:{
-        model: ProjectManager,
-        unique: false,
-    },
-    as: 'teams_assigned'
+Project.belongsTo(User, {
+    foreignKey: 'user_id'
 });
 
-module.exports ={Users, Project, ProjectManager};
+module.exports = { User, Project };

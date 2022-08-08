@@ -10,9 +10,10 @@ const getProjects = asyncHandler(async (req, res) => {
     })
 })
 
-const UserProjects = asyncHandler(async (req, res) => {
-    if(req.session.loggedIn) {
-        Project.findOne({ _id: req.session.userId }).then((data) => {
+
+const UserProject = asyncHandler(async (req, res) => {
+    if (req.session.loggedIn) {
+        Project.findOne({ _id: req.params.userId }).then((data) => {
             res.status(200).json(data)
         })
     }
@@ -35,9 +36,9 @@ const updateProject = asyncHandler(async (req, res) => {
         // { _id: req.params.userId },
         { $addToSet: { savedBooks: body } },
         { new: true, runValidators: true }
-      );
+    );
 
-    res.status(200).json({ message: `update Project ${req.params.id}`,  updatedUser})
+    res.status(200).json({ message: `update Project ${req.params.id}`, updatedUser })
 })
 
 //get Projects from db
@@ -50,11 +51,10 @@ const deleteProject = asyncHandler(async (req, res) => {
 })
 
 
-
 module.exports = {
     getProjects,
     setProject,
     updateProject,
     deleteProject,
-    UserProjects
+    UserProject,
 }

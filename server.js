@@ -39,24 +39,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //send api calls to router
 app.use('/api/Projects', require('./backend/routes/projectRoutes'));
-// app.use('api/Users', require('./routes/userRoutes'));
-
-app.get('/', (req, res) => {
-  res.render('homepage');
-});
-
-app.get('/login', (req, res) => {
-  res.render('login');
-});
-
-// needs /:id
-app.get('/profile', (req, res) => {
-  res.render('profile');
-});
-
-app.get('/project/:id', (req, res) => {
-  res.render('login');
-});
+app.use('/api/Users', require('./backend/routes/userRoutes'));
+app.use('/', require('./backend/routes/homeRoutes'))
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'.bgGreen + ' http://localhost:3001/'.rainbow));

@@ -15,7 +15,7 @@ const UserProjects = asyncHandler(async (req, res) => {
         Project.findOne({ _id: req.session.userId }).then((data) => {
             res.status(200).json(data)
         })
-    }
+    } 
 })
 
 //add new Project to db
@@ -37,7 +37,7 @@ const updateProject = asyncHandler(async (req, res) => {
         { new: true, runValidators: true }
       );
 
-    res.status(200).json({ message: `update Project ${req.params.id}`,  updatedUser})
+    res.status(200).json({ message: `update Project ${req.params.id}`,  updatedProject})
 })
 
 //get Projects from db

@@ -9,12 +9,12 @@ router.route('/').get(getProjects).post(setProject)
 //send delete and put requests to the /:ID specific controller
 router.route('/:id').delete(deleteProject).put(updateProject).get(getProjects).post(setProject);
 
-router.get('*', (req, res)=>
-res.sendFile(path.join(_dirname, '../../public/404image.jpg')));
+router.route('/').get(getComments).post(setComment)
 
 
 router.get('*', (req, res)=>
 res.sendFile(path.join(_dirname, '../../public/404image.jpg')));
+
 
 router.use(cors()); 
 

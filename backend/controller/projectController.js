@@ -11,7 +11,7 @@ const getProjects = asyncHandler(async (req, res) => {
     throw new Error (
         res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
     )
-    
+
 });
 
 const UserProjects = asyncHandler(async (req, res) => {
@@ -19,9 +19,12 @@ const UserProjects = asyncHandler(async (req, res) => {
         Project.findOne({ _id: req.session.userId }).then((data) => {
             res.status(200).json(data)
         })
-    } throw new Error (
-        res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
-    )
+        
+        throw new Error (
+            res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
+        );
+    }
+
 });
 
 //add new Project to db
@@ -31,7 +34,10 @@ const setProject = asyncHandler(async (req, res) => {
     Project.create(req.body).then((data) => {
         res.status(200).json(data)
     })
-})
+    throw new Error (
+        res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
+    );
+});
 
 //update Project from db by ID
 //route PUT /api/Projects 

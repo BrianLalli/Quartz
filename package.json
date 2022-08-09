@@ -5,11 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "run server.js",
-    "server": "node backend/server.js",
-    "start": "nodemon backend/server.js",
+    "server": "node server.js",
+    "start": "nodemon server.js",
     "frontend": "cd ./frontend && npm run dev ",
     "watch": "nodemon server.js",
-    "seed": "backend/seeds node seed.js"
+    "seed": "node seeds/seed.js"
   },
   "author": "",
   "license": "ISC",

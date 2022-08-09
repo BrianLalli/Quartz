@@ -1,2 +1,0 @@
--- DELETE FROM 
--- WHERE id = 2;

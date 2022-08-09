@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const {projectManagerModel} = require('../model/projectManagerModel');
+const { projectManagerModel } = require('../model/projectManagerModel');
 const asyncHandler = require('express-asyn-handler');
 
 const getManger = asyncHandler(async (req, res) => {
-   try{
-     projectManagerModel.find().then((data) => {
-        res.status(200).json(data)
-    })
-}catch(err){
-    res.sendFile(path.join(_dirname, '../../public/404image.jpg'));
-}
+    try {
+        projectManagerModel.find().then((data) => {
+            res.status(200).json(data)
+        })
+    } catch (err) {
+        res.sendFile(path.join(_dirname, '../../public/404image.jpg'));
+    }
 });
 
 const setManager = asyncHandler(async (req, res) => {
@@ -25,28 +25,17 @@ const deleteManager = asyncHandler(async (req, res) => {
     })
 });
 
-const updateManager = asyncHandler(async (req, res)=>{
+const updateManager = asyncHandler(async (req, res) => {
     const updatedManager = await projectManagerModel.findOneAndUpdate(
         { _id: req.session.userId },
         // { _id: req.params.userId },
         { $addToSet: { savedBooks: body } },
         { new: true, runValidators: true }
-      );
+    );
 
-    res.status(200).json({ message: `update Manager ${req.params.id}`,  updatedManager})
+    res.status(200).json({ message: `update Manager ${req.params.id}`, updatedManager })
 })
 
-module.exports ={
-    getManger,
-    setManager,
-    deleteManager,
-    updateManager
-}
-
-
-
-router.get('*', (req, res)=>
-res.sendFile(path.join(_dirname, '../../public/404image.jpg')));
 
 
 // create project manager
@@ -75,3 +64,10 @@ res.sendFile(path.join(_dirname, '../../public/404image.jpg')));
 //         res.status(500).json(err)
 //     }
 // });
+
+module.exports = {
+    getManger,
+    setManager,
+    deleteManager,
+    updateManager
+}

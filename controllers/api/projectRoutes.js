@@ -2,6 +2,17 @@ const router = require('express').Router();
 const { Project } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+router.get('/', withAuth, async (req, res) => {
+  try {
+    Project.findAll().then((data) => {
+      res.status(200).json(data)
+    })
+  } catch (error) {
+    console.error('There Was An Error', error)
+    res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
+  }
+})
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({

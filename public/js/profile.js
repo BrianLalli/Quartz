@@ -1,16 +1,16 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#project-name').value.trim();
-  const budget = document.querySelector('#project-budget').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
-  const status = document.querySelector('#project-status').value.trim();
-  const deadline = document.querySelector('#project-deadline').value.trim();
-  const priority = document.querySelector('#project-priority').value.trim();
+  const name = document.querySelector("#project-name").value.trim();
+  const budget = document.querySelector("#project-budget").value.trim();
+  const description = document.querySelector("#project-desc").value.trim();
+  const status = document.querySelector("#project-status").value.trim();
+  const deadline = document.querySelector("#project-deadline").value.trim();
+  const priority = document.querySelector("#project-priority").value.trim();
 
   if (name && budget && description && status && deadline && priority) {
     const response = await fetch(`/api/projects`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({
         name,
         budget,
@@ -20,38 +20,38 @@ const newFormHandler = async (event) => {
         priority,
       }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace("/profile");
     } else {
-      alert('Failed to create project');
+      alert("Failed to create project");
     }
   }
 };
 
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+  if (event.target.hasAttribute("data-id")) {
+    const id = event.target.getAttribute("data-id");
 
     const response = await fetch(`/api/projects/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace("/profile");
     } else {
-      alert('Failed to delete project');
+      alert("Failed to delete project");
     }
   }
 };
 
 document
-  .querySelector('.new-project-form')
-  .addEventListener('submit', newFormHandler);
+  .querySelector(".new-project-form")
+  .addEventListener("submit", newFormHandler);
 
 document
-  .querySelector('.project-list')
-  .addEventListener('click', delButtonHandler);
+  .querySelectorAll(".project-list")
+  .forEach((el) => el.addEventListener("click", delButtonHandler));

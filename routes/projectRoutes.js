@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Project } = require('../models');
-const withAuth = require('../utils/auth');
 const { getProjects, createProjects, deleteProjects, updateProject, getProjectById, getProjectbyName } = require('../controllers/projectController')
 
 

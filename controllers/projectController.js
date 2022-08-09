@@ -91,27 +91,6 @@ const updateProject = asyncHandler(async (req, res) => {
         res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
     }
 })
-// this looks like an update project function?? im not sure where this goes or why it was in home routes
-// router.put("/projects/:id", async (req, res) => {
-//     try {
-//         const modifData = await Project.update(req.body, {
-//             where: {
-//                 id: req.params.id,
-//             },
-//         });
-//         console.log(modifData);
-//         if (!modifData) {
-//             res.status(404).json({ message: "No project found with this id!" });
-//             return;
-//         }
-
-//         res.status(200).json(modifData);
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// });
-
-
 
 
 module.exports = {

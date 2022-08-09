@@ -3,9 +3,13 @@ const {projectManagerModel} = require('../model/projectManagerModel');
 const asyncHandler = require('express-asyn-handler');
 
 const getManger = asyncHandler(async (req, res) => {
-    projectManagerModel.find().then((data) => {
+   try{
+     projectManagerModel.find().then((data) => {
         res.status(200).json(data)
     })
+}catch(err){
+    res.sendFile(path.join(_dirname, '../../public/404image.jpg'));
+}
 });
 
 const setManager = asyncHandler(async (req, res) => {

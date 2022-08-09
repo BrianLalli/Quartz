@@ -58,18 +58,13 @@ nav a {
 .projectDeadline {
   border: 1px solid gray;
   padding: 10px;
-  color: #9ba3af;
+
   border-radius: 4px;
   font-family: sans-serif;
   padding-left: 20px;
   padding-right: 20px;
 }
-.projectStatus {
-  color: #9ba3af !important;
-}
-.projectPriority {
-  color: #9ba3af !important;
-}
+
 .currentProjects {
   color: var(--primary-color);
   padding: 10px;
@@ -96,15 +91,23 @@ nav a {
 
 /* Projects Page */
 .projectCard {
-  background-color: rgb(248, 240, 251);
+  background-color: whitesmoke;
   padding: 20px;
   margin-top: 10px;
-  font-size: 16px !important;
+  font-size: 15px !important;
   border-radius: 10px;
 }
 
-.createdCard {
+.seeMore {
   text-align: right;
+  color: var(--primary-color);
+}
+.seeMore a:hover {
+  text-decoration: none;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
 }
 .projectCardTitle {
   background-color: var(--primary-color);
@@ -121,4 +124,17 @@ nav a {
 
 .updateBtn {
   font-size: 20px;
+}
+
+/* Project Id Page */
+.createdProject {
+  text-align: right;
+}
+.projectId {
+  border: 1px solid gray;
+  padding: 40px;
+  border-radius: 14px;
+}
+.customizedForm {
+  padding-left: 25px;
 }

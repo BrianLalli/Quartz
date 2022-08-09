@@ -99,6 +99,16 @@ router.get("/dashboard", async (req, res) => {
       ).length,
       totalDone: projectData.filter((project) => project.status === "Done")
         .length,
+      myTotalProjects: userProjects.length,
+
+      myTotalBudget: userProjects
+        .map((project) => project.budget)
+        .reduce((previousSum, budget) => previousSum + budget, 0),
+      myTotalInprogress: userProjects.filter(
+        (project) => project.status === "In progress"
+      ).length,
+      myTotalDone: userProjects.filter((project) => project.status === "Done")
+        .length,
     });
   } catch (err) {
     res.status(500).json(err);

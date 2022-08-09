@@ -37,9 +37,20 @@ router.get('/projects', (req, res) => {
     }
 });
 
-router.get('/dashboard', (req, res) => {
+// router.get('/dashboard', (req, res) => {
+//     try {
+//         res.render('homepage', {
+//             projects,
+//             logged_in: req.session.logged_in,
+//         });
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
+
+router.get('/dashboard/projects', (req, res) => {
     try {
-        res.render('homepage', {
+        res.render('mainDash', {
             projects,
             logged_in: req.session.logged_in,
         });
@@ -81,8 +92,8 @@ router.get('/login', (req, res) => {
     }
 });
 
-router.get('*', (req, res)=>
-res.sendFile(path.join(_dirname, '../../public/404image.jpg')));
+router.get('*', (req, res) =>
+    res.sendFile(path.join(_dirname, '../../public/404image.jpg')));
 
 
 //send delete and put requests to the /:ID specific controller

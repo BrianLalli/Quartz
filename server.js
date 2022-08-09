@@ -32,6 +32,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use('/api/Projects', require('./routes/projectRoutes'));
 app.use('/api/Users', require('./routes/userRoutes'));
+app.use('/api/comment', require('./routes/commentRoutes'));
 app.use('/', require('./routes/homeRoutes'));
 
 

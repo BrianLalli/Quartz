@@ -19,7 +19,7 @@ const getProjectPage = asyncHandler(async (req, res) => {
         // Get all projects and JOIN with user data
         const projectData = await Project.findOne({
             where: {
-                name: req.params.name
+                id: req.session.user_id
             }
         });
 

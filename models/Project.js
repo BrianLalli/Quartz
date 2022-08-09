@@ -8,7 +8,6 @@ Project.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
       autoIncrement: true,
     },
     name: {
@@ -49,6 +48,7 @@ Project.init(
     // },
     user_id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
       references: {
         model: 'user',
         key: 'id',

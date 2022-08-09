@@ -15,6 +15,15 @@ const getComments = asyncHandler((req, res) => {
     }
 })
 
+const brandNewComment = asyncHandler(async (req, res) => {
+    try {
+        res.status.json()
+    } catch (error) {
+        
+    }
+})
+
+
 const newComment = ((req, res) => {
     const project_id = req.params.id;
 

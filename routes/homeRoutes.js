@@ -4,7 +4,7 @@ const { getHomepage, getProjectPage, getDashboard, getSpecificProjectPage, userA
 // function to call the homepage
 router.route("/").get(getHomepage)
 
-
+// function to call project page
 router.route("/projects").get(getProjectPage)
 
 router.route("/dashboard").get(getDashboard)

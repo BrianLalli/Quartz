@@ -1,4 +1,4 @@
-const { Project } = require('../models')
+const { Project, User } = require('../models')
 const asyncHandler = require('express-async-handler')
 
 const getProjects = asyncHandler(async (req, res) => {
@@ -12,30 +12,37 @@ const getProjects = asyncHandler(async (req, res) => {
     }
 })
 
-const getProjectct = asyncHandler(async (req, res) => {
+// function to get project by id
+const getProjectById = asyncHandler(async (req, res) => {
     try {
-        res.status(200).json(await Product.findOne({
+        Project.findOne({
             where: {
                 id: req.params.id
-            },
-            include: [
-                Category,
-                {
-                    model: Tag,
-                    through: {
-                        attributes: []
-                    }
-                }
-            ]
-        }));
-    } catch (error) {
-        console.error(error)
-        res.status(400).json(error)
+            }
+        }).then((data) => {
+            res.status(200).json(data)
+        })
 
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
+
+const getProjectbyName = asyncHandler(async (req, res) => {
+    try {
+        Project.findOne({
+            where: {
+                name: req.params.name
+            }
+        }).then((data) => {
+            res.status(200).json(data)
+        })
+
+    } catch (err) {
+        res.status(400).json(err);
     }
 
 })
-
 
 const createProjects = asyncHandler(async (req, res) => {
     try {
@@ -66,7 +73,7 @@ const deleteProjects = asyncHandler(async (req, res) => {
 
         res.status(200).json(projectData);
     } catch (err) {
-        res.status(500).json(err);
+        res.status(400).json(err);
     }
 })
 
@@ -100,7 +107,7 @@ const updateProject = asyncHandler(async (req, res) => {
 
 //         res.status(200).json(modifData);
 //     } catch (err) {
-//         res.status(500).json(err);
+//         res.status(400).json(err);
 //     }
 // });
 
@@ -112,4 +119,7 @@ module.exports = {
     createProjects,
     deleteProjects,
     updateProject,
+    getProjectById,
+    getProjectbyName,
+
 }

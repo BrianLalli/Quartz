@@ -58,7 +58,10 @@ const getUsers = asyncHandler(async (req, res) => {
     User.find().then((data) => {
         res.status(200).json(data)
     })
-})
+    throw new Error (
+        res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
+    )
+});
 
 const getLoggedInUser = asyncHandler(async (req, res) => {
     if(req.session.loggedIn) {

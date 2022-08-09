@@ -39,7 +39,14 @@ Project.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-
+    // comments: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    //   references: {
+    //     model: 'user',
+    //     key: 'id',
+    //   },
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

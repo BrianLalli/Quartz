@@ -34,5 +34,26 @@
     </div>
   </form>
 
-  <section class='comments' id='comment-container'></section>
+  {{!-- <section class='comments' id='comment-container'>
+    {{#if comments.length}}
+      <div class='col-md-5 comment-list'>
+        <h3 class='commentSubtitle'>Current Comments:</h3>
+
+        {{#each comments as |comment|}}
+          <div class='row mb-2'>
+            <div class='col-md-8'>
+              <h4 class='currentComments'><a
+                  href='/project/{{project.id}}'
+                >{{project.name}}</a></h4>
+            </div>
+  </section> --}}
+
+
+<div class='mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start'>
+    <div class='rounded-md shadow'>
+      <a
+        href='/dashboard'
+        class='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10'
+      > Continue </a>
+    </div>
 </div>

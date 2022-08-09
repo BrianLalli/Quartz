@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler')
 const colors = require('colors')
 const User = require('../model/userModel')
 // Add User Auth
-// Login
+    // Login
 const loginController = asyncHandler(async (req, res) => {
     try {
         const dbUserData = await User.findOne({
@@ -42,7 +42,7 @@ const loginController = asyncHandler(async (req, res) => {
         res.status(500).json(err);
     }
 })
-// Logout
+    // Logout
 const logoutController = asyncHandler(async (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
@@ -52,17 +52,25 @@ const logoutController = asyncHandler(async (req, res) => {
         res.status(404).end();
     }
 })
-
 //get Users from db
 //route GET /api/Users
 const getUsers = asyncHandler(async (req, res) => {
-    User.findAll().then((data) => {
+
+    User.find().then((data) => {
         res.status(200).json(data)
+        
     })
-})
+    
+     throw new Error (
+        res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
+        throw new Error (
+        res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
+    )
+});
+
 
 const getLoggedInUser = asyncHandler(async (req, res) => {
-    if (req.session.loggedIn) {
+    if(req.session.loggedIn) {
         User.findOne({ _id: req.session.userId }).then((data) => {
             res.status(200).json(data)
         })
@@ -86,9 +94,9 @@ const updateUser = asyncHandler(async (req, res) => {
         // { _id: req.params.userId },
         { $addToSet: { savedBooks: body } },
         { new: true, runValidators: true }
-    );
+      );
 
-    res.status(200).json({ message: `update User ${req.params.id}`, updatedUser })
+    res.status(200).json({ message: `update User ${req.params.id}`,  updatedUser})
 })
 
 //get Users from db
@@ -100,13 +108,13 @@ const deleteUser = asyncHandler(async (req, res) => {
 })
 
 module.exports = {
-    getUsers,
-    createUser,
-    updateUser,
-    deleteUser,
-    loginController,
-    logoutController,
-    getLoggedInUser
+      getUsers,
+      createUser,
+      updateUser,
+      deleteUser,
+      loginController,
+      logoutController,
+      getLoggedInUser
 }
 
 

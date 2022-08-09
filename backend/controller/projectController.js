@@ -5,19 +5,27 @@ const Project = require('../model/projectModel')
 //get Projects from db
 //route GET /api/Projects
 const getProjects = asyncHandler(async (req, res) => {
-    Project.findAll().then((data) => {
+   Project.findAll().then((data) => {
         res.status(200).json(data)
     })
-})
+    throw new Error (
+        res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
+    )
 
+});
 
-const UserProject = asyncHandler(async (req, res) => {
-    if (req.session.loggedIn) {
-        Project.findOne({ _id: req.params.userId }).then((data) => {
+const UserProjects = asyncHandler(async (req, res) => {
+    if(req.session.loggedIn) {
+        Project.findOne({ _id: req.session.userId }).then((data) => {
             res.status(200).json(data)
         })
+        
+        throw new Error (
+            res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
+        );
     }
-})
+
+});
 
 //add new Project to db
 //route POST /api/Projects
@@ -26,7 +34,10 @@ const setProject = asyncHandler(async (req, res) => {
     Project.create(req.body).then((data) => {
         res.status(200).json(data)
     })
-})
+    throw new Error (
+        res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
+    );
+});
 
 //update Project from db by ID
 //route PUT /api/Projects 
@@ -36,9 +47,12 @@ const updateProject = asyncHandler(async (req, res) => {
         // { _id: req.params.userId },
         { $addToSet: { savedBooks: body } },
         { new: true, runValidators: true }
-    );
+      );
 
-    res.status(200).json({ message: `update Project ${req.params.id}`, updatedUser })
+    res.status(200).json({ message: `update Project ${req.params.id}`,  updatedProject})
+    throw new Error (
+        res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
+    )
 })
 
 //get Projects from db
@@ -48,7 +62,11 @@ const deleteProject = asyncHandler(async (req, res) => {
     Project.destroy({ _id: req.session.userId }).then((data) => {
         res.status(200).json({ message: `delete Project ${req.params.id}` })
     })
+    throw new Error (
+        res.sendFile(path.join(__dirname, '../../public/404image.jpg'))
+    )
 })
+
 
 
 module.exports = {
@@ -56,5 +74,5 @@ module.exports = {
     setProject,
     updateProject,
     deleteProject,
-    UserProject,
+    UserProjects
 }

@@ -81,6 +81,8 @@ router.get('/login', (req, res) => {
     }
 });
 
+router.get('*', (req, res)=>
+res.sendFile(path.join(_dirname, '../../public/404image.jpg')));
 
 
 //send delete and put requests to the /:ID specific controller

@@ -15,11 +15,9 @@ const getProjects = asyncHandler(async (req, res) => {
 // function to get project by id
 const getProjectById = asyncHandler(async (req, res) => {
     try {
-        const userData = req.session.user_id
-
         Project.findOne({
             where: {
-                id: userData
+                id: req.params.id
             }
         }).then((data) => {
             res.status(200).json(data)

@@ -6,39 +6,21 @@ const asyncHandler = require('express-async-handler')
 // why are we calling the projects in the HOMEPAGE route?????
 const getHomepage = asyncHandler(async (req, res) => {
     try {
-        // Get all projects and JOIN with user data
-        const projectData = await Project.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ["name"],
-                },
-            ],
-        });
-
-        // Serialize data so the template can read it
-        const projects = projectData.map((project) => project.get({ plain: true }));
-
-        // Pass serialized data and session flag into template
-        res.render("homepage", {
-            projects,
-            logged_in: req.session.logged_in,
-        });
+        res.render("homepage");
     } catch (err) {
         res.status(500).json(err);
     }
 })
 
+//  CURRENTLY WORKING ON GRABBING THE USER NAME FROM SESSION
+// SO THAT IT ONLY SHOWS CURRENT USERS PROJECT INSTEAD OF ALL
 const getProjectPage = asyncHandler(async (req, res) => {
     try {
         // Get all projects and JOIN with user data
-        const projectData = await Project.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ["name"],
-                },
-            ],
+        const projectData = await Project.findOne({
+            where: {
+                name: req.params.name
+            }
         });
 
         // Serialize data so the template can read it

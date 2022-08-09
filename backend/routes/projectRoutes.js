@@ -13,6 +13,9 @@ router.get('*', (req, res)=>
 res.sendFile(path.join(_dirname, '../../public/404image.jpg')));
 
 
+router.get('*', (req, res)=>
+res.sendFile(path.join(_dirname, '../../public/404image.jpg')));
+
 router.use(cors()); 
 
 module.exports = router;

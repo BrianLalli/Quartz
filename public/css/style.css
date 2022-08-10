@@ -134,3 +134,14 @@ nav a {
 .customizedForm {
   padding-left: 25px;
 }
+
+/* Dashboard Page */
+
+.globalStatus {
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+}
+.myStatus {
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+}
